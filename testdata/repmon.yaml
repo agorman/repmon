@@ -1,0 +1,23 @@
+log_path: /var/log/remon_log.log
+log_level: debug
+frequency: 10s
+http:
+  addr: 127.0.0.1
+  port: 1234
+mysql:
+  host: 127.0.0.1
+  port: 3308
+  user: user
+  pass: pass
+email:
+  host: smtp.me.com
+  port: 25
+  user: me
+  pass: pass
+  starttls: true
+  ssl: false
+  subject: REP FAILED!
+  from: me@me.com
+  to:
+    - they@me.com
+    - them@me.com
