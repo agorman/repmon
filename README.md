@@ -161,18 +161,6 @@ email:
 
 	An array of email addresses for which emails will be sent.
 
-### history_email
-
-    Optional subject to use when sending sync history emails.
-
-### history_schedule
-
-	Defines a cron expression used to send scheduled reports. If set then an email with sync history will be sent based on the schedule.
-
-### on_failure
-
-	Send an email for each sync failure if true.
-
 
 # Flags
 
