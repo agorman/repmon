@@ -6,7 +6,7 @@
 # Repmon
 
 
-Repmon is a simple database replication monitoring tool.
+Repmon is a simple database replication monitoring tool. Repmon will send notifications based on database replication failure. Repmon also optionally support HTTP healthchecks for database replication.
 
 
 # Supported Databases
