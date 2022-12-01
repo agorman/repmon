@@ -1,0 +1,10 @@
+[Unit]
+Description=Repmon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/repmon
+
+[Install]
+WantedBy=multi-user.target
