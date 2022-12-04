@@ -25,7 +25,7 @@ func TestConfig(t *testing.T) {
 	assert.Equal(t, config.MySQL.Pass, "pass")
 
 	assert.NotNil(t, config.Email)
-	assert.Equal(t, config.Email.Host, "smtp.me.com")
+	assert.Equal(t, config.Email.Host, "1.1.1.1.1")
 	assert.Equal(t, config.Email.Port, 25)
 	assert.Equal(t, config.Email.User, "me")
 	assert.Equal(t, config.Email.Pass, "pass")

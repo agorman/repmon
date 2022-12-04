@@ -10,7 +10,7 @@ mysql:
   user: user
   pass: pass
 email:
-  host: smtp.me.com
+  host: "1.1.1.1.1"
   port: 25
   user: me
   pass: pass

@@ -3,7 +3,7 @@ mysql:
   user: user
   pass: pass
 email:
-  host: smtp.me.com
+  host: 1.1.1.1.1
   user: me
   pass: pass
   from: me@me.com

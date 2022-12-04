@@ -2,6 +2,7 @@ package repmon
 
 import (
 	"crypto/tls"
+	"errors"
 	"fmt"
 
 	gomail "gopkg.in/gomail.v2"
@@ -21,6 +22,10 @@ func NewEmailNotifier(config *Config) *EmailNotifier {
 
 // Notify sends a failure notification
 func (n *EmailNotifier) Notify(err error) error {
+	if err == nil {
+		return errors.New("Email Notifier: Notify method requires a non nil error")
+	}
+
 	message := gomail.NewMessage()
 	message.SetHeader("From", n.config.Email.From)
 	message.SetHeader("To", n.config.Email.To...)
