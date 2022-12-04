@@ -1,0 +1,12 @@
+mysql:
+  host: 127.0.0.1
+  user: user
+  pass: pass
+email:
+  host: smtp.me.com
+  user: me
+  pass: pass
+  from: me@me.com
+  to:
+    - they@me.com
+    - them@me.com
