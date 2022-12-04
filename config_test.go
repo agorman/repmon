@@ -119,3 +119,52 @@ func TestConfigBadPath(t *testing.T) {
 	_, err := OpenConfig("./testdata/notexist.yaml")
 	assert.Error(t, err)
 }
+
+func TestConfigLogLevel(t *testing.T) {
+	config, err := OpenConfig("./testdata/defaults.yaml")
+	assert.Nil(t, err)
+
+	config.LogLevel = "panic"
+	err = config.validate()
+	assert.Nil(t, err)
+
+	config.LogLevel = "fatal"
+	err = config.validate()
+	assert.Nil(t, err)
+
+	config.LogLevel = "trace"
+	err = config.validate()
+	assert.Nil(t, err)
+
+	config.LogLevel = "debug"
+	err = config.validate()
+	assert.Nil(t, err)
+
+	config.LogLevel = "warn"
+	err = config.validate()
+	assert.Nil(t, err)
+
+	config.LogLevel = "info"
+	err = config.validate()
+	assert.Nil(t, err)
+
+	config.LogLevel = "error"
+	err = config.validate()
+	assert.Nil(t, err)
+
+	config.LogLevel = "bad"
+	err = config.validate()
+	assert.Error(t, err)
+}
+
+func TestConfigDSN(t *testing.T) {
+	config, err := OpenConfig("./testdata/repmon.yaml")
+	assert.Nil(t, err)
+
+	dsn := config.MySQL.DSN()
+	assert.Equal(t, dsn, "user:pass@tcp(127.0.0.1:3308)/")
+
+	config.MySQL.SocketPath = "/var/run/mysql.sock"
+	dsn = config.MySQL.DSN()
+	assert.Equal(t, dsn, "user:pass@unix(/var/run/mysql.sock)/")
+}
