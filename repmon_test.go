@@ -22,5 +22,7 @@ func TestRepMon(t *testing.T) {
 
 	rm := New(config, checker, notifier)
 	rm.Start()
+	rm.Start()
+	rm.Stop()
 	rm.Stop()
 }
