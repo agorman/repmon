@@ -175,6 +175,7 @@ type MySQL struct {
 	SocketPath string `yaml:"socket_path"`
 }
 
+// DSN returns the go database dsn.
 func (m *MySQL) DSN() string {
 	if m.SocketPath != "" {
 		return fmt.Sprintf("%s:%s@unix(%s)/", m.User, m.Pass, m.SocketPath)
@@ -183,9 +184,13 @@ func (m *MySQL) DSN() string {
 	}
 }
 
+// HTTP defines the configuration for http health checks.
 type HTTP struct {
+	// The address the http server will listen on.
 	Addr string `yaml:"addr"`
-	Port int    `yaml:"port"`
+
+	// The port the http server will listen on.
+	Port int `yaml:"port"`
 }
 
 type Email struct {
