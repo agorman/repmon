@@ -46,6 +46,8 @@ func (r *RepMon) Stop() {
 
 	r.stopc <- struct{}{}
 	<-r.donec
+
+	r.running = false
 }
 
 func (r *RepMon) loop() {
