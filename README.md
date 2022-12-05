@@ -132,6 +132,15 @@ email:
 **-debug** - Log to STDOUT
 
 
+# HTTP Health Checks
+
+
+The optional HTTP server creates two endpoints.
+
+**/live** - A liveness check that always returns 200. 
+
+**/sync** - A health check that returns 200 if the if there are no replication errors and 503 otherwise.
+
 ## Road Map
 
 

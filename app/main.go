@@ -8,6 +8,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"github.com/agorman/repmon"
 	"github.com/etherlabsio/healthcheck/v2"
@@ -55,9 +56,20 @@ func main() {
 	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
 
 	if config.HTTP != nil {
-		http.Handle("/healthcheck", healthcheck.Handler(
+		http.Handle("/live", healthcheck.Handler(
+			healthcheck.WithTimeout(5*time.Second),
 			healthcheck.WithChecker(
-				"replicating", healthcheck.CheckerFunc(
+				"live", healthcheck.CheckerFunc(
+					func(ctx context.Context) error {
+						return nil
+					},
+				),
+			),
+		))
+
+		http.Handle("/replicate", healthcheck.Handler(
+			healthcheck.WithChecker(
+				"replicate", healthcheck.CheckerFunc(
 					func(ctx context.Context) error {
 						return replicationChecker.Replicating()
 					},
