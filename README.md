@@ -139,7 +139,7 @@ The optional HTTP server creates two endpoints.
 
 **/live** - A liveness check that always returns 200. 
 
-**/replicate** - A health check that returns 200 if the if there are no replication errors and 503 otherwise.
+**/health** - A health check that returns 200 if the if there are no replication errors and 503 otherwise.
 
 ## Road Map
 

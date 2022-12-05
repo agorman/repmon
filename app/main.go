@@ -67,9 +67,9 @@ func main() {
 			),
 		))
 
-		http.Handle("/replicate", healthcheck.Handler(
+		http.Handle("/health", healthcheck.Handler(
 			healthcheck.WithChecker(
-				"replicate", healthcheck.CheckerFunc(
+				"health", healthcheck.CheckerFunc(
 					func(ctx context.Context) error {
 						return replicationChecker.Replicating()
 					},
