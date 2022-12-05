@@ -73,105 +73,63 @@ email:
 ## Global Options
 
 
-### log_path
+**log_path** - File on disk where repmon logs will be stored. Defaults to /var/log/repmon.log.
 
-    File on disk where repmon logs will be stored. Defaults to /var/log/repmon.log.
+**log_level** - Sets the log level. Valid levels are: panic, fatal, trace, debug, warn, info, and error. Defaults to error.
 
-### log_level
-
-    Sets the log level. Valid levels are: panic, fatal, trace, debug, warn, info, and error. Defaults to error.
-
-### frequency
-
-    How often repmon will check the database to ensure replication is running. Defaults to 1h.
+**frequency** - How often repmon will check the database to ensure replication is running. Defaults to 1h.
 
 
-## http
+## HTTP
 
 
-### addr
+**addr** - The listening address for the HTTP server. Default to 0.0.0.0
 
-    The listening address for the HTTP server. Default to 0.0.0.0
-
-### port
-
-    The listening port for the HTTP server. Default to 4040
+**port** - The listening port for the HTTP server. Default to 4040
 
 
-## mysql
+## MySQL
 
 
-### host
+**host** - The hostname or IP of the MySQL server.
 
-    The hostname or IP of the MySQL server.
+**port** - The port of the MySQL server.
 
-### port
+**user** - The username used to authenticate.
 
-    The port of the MySQL server.
+**pass** - The password used to authenticate.
 
-### user
-
-    The username used to authenticate.
-
-### pass
-
-    The password used to authenticate.
-
-### socket_path
-
-    Connect to the MySQL database through a socket file rather than a port.
+**socket_path** - Connect to the MySQL database through a socket file rather than a port.
 
 
-## email
+## Email
 
 
-### host
+**host** - The hostname or IP of the SMTP server.
 
-    The hostname or IP of the SMTP server.
+**port** - The port of the SMTP server.
 
-### port
+**user** - The username used to authenticate.
 
-    The port of the SMTP server.
+**pass** - The password used to authenticate.
 
-### user
+**start_tls** - StartTLS enables TLS security. If both StartTLS and SSL are true then StartTLS will be used.
 
-    The username used to authenticate.
+**insecure_skip_verify** - When using TLS skip verifying the server's certificate chain and host name.
 
-### pass
+**ssl** - SSL enables SSL security. If both StartTLS and SSL are true then StartTLS will be used.
 
-    The password used to authenticate.
+**from** - The email address the email will be sent from.
 
-### start_tls
-
-    StartTLS enables TLS security. If both StartTLS and SSL are true then StartTLS will be used.
-
-### insecure_skip_verify
-
-    When using TLS skip verifying the server's certificate chain and host name.
-
-### ssl
-
-    SSL enables SSL security. If both StartTLS and SSL are true then StartTLS will be used.
-
-### from
-
-    The email address the email will be sent from.
-
-### to
-
-	An array of email addresses for which emails will be sent.
+**to** - An array of email addresses for which emails will be sent.
 
 
 # Flags
 
 
-## -conf
+**-conf** - Path to the repmon configuration file
 
-    Path to the repmon configuration file
-
-## -debug
-
-    Log to STDOUT
+**-debug** - Log to STDOUT
 
 
 ## Road Map
