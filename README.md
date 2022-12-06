@@ -123,6 +123,7 @@ email:
 
 **to** - An array of email addresses for which emails will be sent.
 
+**subject** - An optional subject field for replication failure emails.
 
 # Flags
 
